@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Defendant\" />
+    <Folder Include="Views\Plaintiff\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Helpers\CaseHelper.cs" />
+    <Compile Remove="Helpers\CaseViewModel.cs" />
+    <Compile Remove="ViewModels\CasesViewModel.cs" />
+    <Compile Remove="ViewModels\DefendantsViewModel.cs" />
+    <Compile Remove="ViewModels\PlaintiffsViewModel.cs" />
+    <Compile Remove="Services\BypassSslValidationClientHandler.cs" />
+    <Compile Remove="Services\ApiHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Font Awesome 5 Brands-Regular-400.otf" />
+    <None Remove="Assets\Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="Assets\Font Awesome 5 Free-Regular-400.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\CasesPage.xaml" />
+    <EmbeddedResource Remove="Styles\CasePageStyle.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\10.1.3.7\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Java.Interop, Version=0.1.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065" />
+    <Compile Update="Views\Case\ShowCasePage.xaml.cs">
+      <DependentUpon>ShowCasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Case\EditCasePage.xaml.cs">
+      <DependentUpon>EditCasePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

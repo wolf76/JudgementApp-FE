@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wolfyjudgement:CustomMasterPage
+    xmlns:wolfyjudgement="clr-namespace:WolfyJudgement"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false"
+    x:Class="WolfyJudgement.MasterPage">
+    <wolfyjudgement:CustomMasterPage.Master>
+        <ContentPage BackgroundColor="#D6D6D6" Title="Menu">
+            <ContentPage.Content>
+                <Grid HorizontalOptions="Start" WidthRequest="1000" BackgroundColor="#333333">
+                    <Grid.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0, 50, 0, 5" />
+                            <On Platform="Android, UWP" Value="0, 50, 0, 5" />
+                            <On Platform="macOS" Value="0, 0, 0, 5" />
+                        </OnPlatform>
+                    </Grid.Margin>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#333333" HeightRequest="120" Orientation="Horizontal" Padding="5">
+                        <!--<Label Text="|||" FontAttributes="Bold"  />-->
+
+                        <!--sample code for a icon-->
+                        <!--<Label Text="&#xf286;"
+                               FontFamily="{StaticResource FontAwesomeBrands}" />
+
+                        <Label Text="&#xf556;"
+                               FontFamily="{StaticResource FontAwesomeRegular}" />-->
+                        <Frame HeightRequest="25" WidthRequest="25" CornerRadius="30" VerticalOptions="Center" 
+                           BackgroundColor="White" Margin="10" HasShadow="False">
+                            <Label Text="D" FontAttributes="Bold" FontSize="Large" TextColor="#333333"
+                               VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="-1"/>
+                        </Frame>
+                        <StackLayout VerticalOptions="Center" Spacing="2">
+                            <Label Text="Wolfy Judgement" FontAttributes="Bold" FontSize="Large" TextColor="White" 
+                               Margin="10,0,0,0" VerticalOptions="Center"/>
+                            <Label Text="A sample application using Xamarin" FontSize="Small" TextColor="White" 
+                               Margin="10,0,0,0" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <Grid Grid.Row="1" Padding="15, 0, 0, 0" Grid.Column="0">
+                        <Grid x:Name="DesktopMenu">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0">
+                                <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Cases_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                <Label Text="Defendants" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Defendants_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2">
+                                <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Plaintiffs_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+
+                        <Grid x:Name="MobileMenu">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0">
+                                <Label Text="Cases" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Cases_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="1">
+                                <Label Text="Defendants" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Defendants_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2">
+                                <Label Text="Plaintiffs" BackgroundColor="Transparent" FontSize="Medium" LineHeight="1.5" FontAttributes="Bold" TextColor="#575757">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Tapped="Plaintiffs_Tapped"
+                                            NumberOfTapsRequired="1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </ContentPage.Content>
+        </ContentPage>
+    </wolfyjudgement:CustomMasterPage.Master>
+
+    <wolfyjudgement:CustomMasterPage.Detail>
+        <ContentPage Padding="10">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <Label Text="Loading, please wait ..." />
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </wolfyjudgement:CustomMasterPage.Detail>
+</wolfyjudgement:CustomMasterPage>

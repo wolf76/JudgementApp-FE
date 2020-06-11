@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WolfyJudgement.ViewModels"
+    x:Class="WolfyJudgement.Views.Plaintiff.EditPlaintiffPage">
+
+    <StackLayout>
+
+        <Grid BindingContext="{Binding}" x:Name="DesktopEditPlaintiffForm" IsVisible="False" Margin="20, 40, 20, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="230" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Label Text="{Binding CaseId, StringFormat='Edit Plaintiff:  {0}'}"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+            </StackLayout>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Case ID"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding CaseId}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="First Name"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding FirstName}"
+                           FontSize="14"
+                           HeightRequest="30"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Middle Name"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding MiddleName}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Padding="20, 0, 0, 0">
+                    <Label Text="Last Name"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding LastName}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Attorney"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Entry Text="{Binding Attorney}"
+                           HeightRequest="30"
+                           FontSize="14"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Padding="0, 0, 20, 0">
+                    <Label Text="Address"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           Style="{StaticResource FormFieldAndLableStyles}" />
+                    <Editor Text="{Binding Address}"
+                            HeightRequest="200"
+                            FontSize="14"
+                            BackgroundColor="White"
+                            Style="{StaticResource FormFieldAndLableStyles}" />
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <StackLayout Padding="0, 10, 10, 10" Orientation="Horizontal">
+                    <Button Text="Update"
+                            Command="{Binding EditPlaintiffCommand, Source={vm:PlaintiffViewModel}}"
+                            CommandParameter="{Binding}"
+                            WidthRequest="70"
+                            BackgroundColor="#4a69ff"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            CornerRadius="5"
+                            BorderWidth="2"
+                            BorderColor="#4a69ff" />
+                    <Button Text="Cancel"
+                            Clicked="Cancel_Button_Clicked"
+                            WidthRequest="70"
+                            BackgroundColor="#555555"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            CornerRadius="5"
+                            BorderWidth="2"
+                            BorderColor="#555555" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+        <StackLayout BindingContext="{Binding}" x:Name="MobileEditPlaintiffForm" IsVisible="False" Padding="20">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="{Binding CaseId, StringFormat='Edit Plaintiff: {0}'}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               TextColor="{StaticResource PrimaryBlack}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding CaseId}"
+                               HeightRequest="40"
+                               Placeholder="Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding FirstName}"
+                               HeightRequest="40"
+                               Placeholder="Case Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding MiddleName}"
+                               HeightRequest="40"
+                               Placeholder="Case Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding LastName}"
+                               HeightRequest="40"
+                               Placeholder="Case Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0">
+                        <Entry Text="{Binding Attorney}"
+                               HeightRequest="40"
+                               Placeholder="Case Type"
+                               ClearButtonVisibility="WhileEditing"
+                               Style="{StaticResource FormFieldAndLableStyles}" />
+                    </StackLayout>
+
+                    <StackLayout Padding="0, 20, 0, 0" HeightRequest="160">
+                        <Frame CornerRadius="5" HasShadow="False" Padding="2" x:Name="MobileCustomTextarea">
+                            <Editor Text="{Binding Address}"
+                                    HeightRequest="150"
+                                    BackgroundColor="Transparent"
+                                    Placeholder="Description"
+                                    Style="{StaticResource FormFieldAndLableStyles}" />
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout Padding="0, 20, 0, 0">
+                <Button Text="Update"
+                        Command="{Binding EditPlaintiffCommand, Source={vm:PlaintiffViewModel}}"
+                        CommandParameter="{Binding}"
+                        WidthRequest="100"
+                        BackgroundColor="#4a69ff"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+                <Button Text="Cancel"
+                        Clicked="Cancel_Button_Clicked"
+                        WidthRequest="100"
+                        BackgroundColor="#555555"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

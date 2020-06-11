@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WolfyJudgement.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--Colors-->
+            <Color x:Key="NavigationPrimary">#4a69ff</Color>
+            <Color x:Key="PrimaryBlack">#333333</Color>
+
+            <!--Global Label Color-->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            </Style>
+
+            <!--Navigation Page Styles-->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <!--Desktop List Header Styles-->
+            <Style x:Key="DesktopListHeaderStyles" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <!--Mobile List Header Styles-->
+            <Style x:Key="MobileListHeaderStyles" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <!--Desktop List Content Styles-->
+            <Style x:Key="DesktopListContentStyles" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>
+
+            <!--Desktop Show Detail Head Styles-->
+            <Style x:Key="DesktopShowDetailHeadStyles" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <!--Form Field and Label Styles-->
+            <Style x:Key="FormFieldAndLableStyles" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource PrimaryBlack}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryBlack}" />
+            </Style>
+
+            <OnPlatform x:Key="FontAwesomeBrands" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Brands.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Brands-Regular" />
+                <On Platform="macOS" Value="FontAwesome5Brands-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Solid.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+                <On Platform="macOS" Value="FontAwesome5FreeSolid" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeRegular" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FontAwesome5Regular.otf#Regular" />
+                <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+                <On Platform="macOS" Value="FontAwesome5FreeRegular" />
+            </OnPlatform>
+          </ResourceDictionary>
+    </Application.Resources>
+</Application>

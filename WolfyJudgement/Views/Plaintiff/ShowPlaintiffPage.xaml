@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WolfyJudgement.Views.Plaintiff.ShowPlaintiffPage">
+
+    <Grid>
+        <Grid BindingContext="{Binding}" x:Name="MobileShowPlaintiffs" Margin="15, 20, 15, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0">
+                        <Label Text="{Binding CaseId, StringFormat='Case ID:  {0}'}"
+                            FontAttributes="Bold"
+                            FontSize="Large" />
+                    </StackLayout>
+
+                    <Grid Grid.Row="1" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="Case ID"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding CaseId}" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="First Name"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding FirstName}" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="3" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="Middle Name"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding MiddleName}" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="4" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="Last Name"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding LastName}" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="5" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="Attorney"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Attorney}" />
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Row="6" Margin="0, 20, 0, 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Label Text="Address"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start" />
+                            <Label Text=":"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End" />
+                        </Grid>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Address}" />
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+
+            <StackLayout Grid.Row="1" Margin="0, 10, 0, 0" Padding="0, 0, 0, 30">
+                <Button Text="Edit"
+                        CommandParameter="{Binding}"
+                        BackgroundColor="#4a69ff"
+                        Clicked="EditButton_Clicked"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+                <Button Text="Delete"
+                        CommandParameter="{Binding Id}"
+                        BackgroundColor="#555555"
+                        Clicked="DeleteButton_ClickedAsync"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+            </StackLayout>
+        </Grid>
+
+        <ScrollView x:Name="DesktopShowPlaintiffs">
+            <Grid BindingContext="{Binding}" Padding="30" Margin="0, 20, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0">
+                    <StackLayout>
+                        <Label
+                            Text="{Binding CaseId, StringFormat='Case ID:  {0}'}"
+                            FontAttributes="Bold"
+                            FontSize="20" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Grid Grid.Row="1" Margin="0, 20, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Text="Case ID"
+                                   HorizontalOptions="Start"
+                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                            <Label Text=":"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding CaseId}" FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Text="First Name"
+                                   HorizontalOptions="Start"
+                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                            <Label Text=":"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding FirstName}" FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0, 20, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Text="Middle Name"
+                                   HorizontalOptions="Start"
+                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                            <Label Text=":"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding MiddleName}" FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Text="Last Name"
+                                   HorizontalOptions="Start"
+                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                            <Label Text=":"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding LastName}" FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="0, 20, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label Text="Attorney"
+                                   HorizontalOptions="Start"
+                                   Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                            <Label Text=":"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Attorney}" FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="0, 20, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="230"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" VerticalOptions="Start">
+                        <Label Text="Address"
+                               HorizontalOptions="Start"
+                               Style="{StaticResource DesktopShowDetailHeadStyles}" />
+                        <Label Text=":"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End" />
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Label Text="{Binding Address}" FontSize="14" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="5" Margin="0, 60, 0, 0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Edit"
+                                CommandParameter="{Binding}"
+                                HeightRequest="40"
+                                WidthRequest="70"
+                                BackgroundColor="#4a69ff"
+                                Clicked="EditButton_Clicked"
+                                TextColor="#FFFFFF"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                CornerRadius="5"
+                                BorderWidth="2"
+                                BorderColor="#4a69ff" />
+                        <Button Text="Delete"
+                                CommandParameter="{Binding Id}"
+                                HeightRequest="40"
+                                WidthRequest="70"
+                                BackgroundColor="#555555"
+                                Clicked="DeleteButton_ClickedAsync"
+                                TextColor="#FFFFFF"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                CornerRadius="5"
+                                BorderWidth="2"
+                                BorderColor="#555555" />
+                    </StackLayout>
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
